@@ -61,15 +61,9 @@ sub _chomped ($)  {
     return $value;
 }
 
-sub chomped ($)  {
-    my $value = $_[0];
-    if ( ref $value eq 'ARRAY' ) {
-        my @result = map { _chomped $_ } @$value;
-        return wantarray ? @result : \@result;
-    }
-    else {
-        return _chomped $value;
-    }
+sub chomped {
+    my @return = map { _chomped $_ } @_;
+    return wantarray ? @return : $return[0];
 }
 
 sub _chopped ($)  {
@@ -78,15 +72,9 @@ sub _chopped ($)  {
     return $value;
 }
 
-sub chopped ($)  {
-    my $value = $_[0];
-    if ( ref $value eq 'ARRAY' ) {
-        my @result = map { _chopped $_ } @$value;
-        return wantarray ? @result : \@result;
-    }
-    else {
-        return _chopped $value;
-    }
+sub chopped {
+    my @return = map { _chopped $_ } @_;
+    return wantarray ? @return : $return[0];
 }
 
 =head1 ACKNOWLEDGEMENTS

@@ -14,8 +14,8 @@ A quick brown fox jumped over the lazy dog
 _END_
 
 is( sentence, "A quick brown fox jumped over the lazy dog" );
-is( chopped "Xyzzy", "Xyzz" );
-cmp_deeply( scalar chomped [ "A\n", "b", "c\n" ], [qw/ A b c /] );
-cmp_deeply( scalar chopped [ "A\n", "b", "c\n" ], [ 'A', '', 'c' ] );
+is( chopped("Xyzzy"), "Xyzz" );
+is_deeply( [chomped "A\n", "b", "c\n"], [qw/ A b c /] );
+is_deeply( [chopped "A\n", "b", "c\n"], [ 'A', '', 'c' ] );
 
 1;
