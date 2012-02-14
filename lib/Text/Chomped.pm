@@ -62,7 +62,9 @@ sub _chomped ($)  {
 }
 
 sub chomped {
-    my @return = map { _chomped $_ } @_;
+    my @args = @_ ? @_ : ($_);
+    local $_;
+    my @return = map { _chomped $_ } @args;
     return wantarray ? @return : $return[0];
 }
 
@@ -73,7 +75,9 @@ sub _chopped ($)  {
 }
 
 sub chopped {
-    my @return = map { _chopped $_ } @_;
+    my @args = @_ ? @_ : ($_);
+    local $_;
+    my @return = map { _chopped $_ } @args;
     return wantarray ? @return : $return[0];
 }
 
